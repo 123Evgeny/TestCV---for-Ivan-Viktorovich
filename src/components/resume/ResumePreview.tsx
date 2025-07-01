@@ -1,6 +1,7 @@
 import React from "react";
-import { ResumeData, ResumeTheme } from "@/types/resume";
+import { ResumeData, ResumeTheme, ResumeSection } from "@/types/resume";
 import { Card } from "@/components/ui/card";
+import { Briefcase, GraduationCap, Settings, Award, User } from "lucide-react";
 
 interface ResumePreviewProps {
   data: ResumeData;
@@ -10,18 +11,19 @@ interface ResumePreviewProps {
 const ResumePreview: React.FC<ResumePreviewProps> = ({ data, theme }) => {
   const sortedSections = [...data.sections].sort((a, b) => a.order - b.order);
 
-  const renderSection = (section: any) => {
+  const renderSection = (section: ResumeSection) => {
     switch (section.type) {
       case "experience":
         return (
           <div key={section.id} className="mb-6">
             <h3
-              className="text-lg font-semibold mb-3 border-b-2 pb-1"
+              className="text-lg font-semibold mb-3 border-b-2 pb-1 flex items-center gap-2"
               style={{
                 borderColor: theme.primaryColor,
                 color: theme.primaryColor,
               }}
             >
+              <Briefcase size={20} style={{ marginRight: 4 }} />
               ОПЫТ РАБОТЫ
             </h3>
             <div className="space-y-3">
@@ -49,12 +51,13 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, theme }) => {
         return (
           <div key={section.id} className="mb-6">
             <h3
-              className="text-lg font-semibold mb-3 border-b-2 pb-1"
+              className="text-lg font-semibold mb-3 border-b-2 pb-1 flex items-center gap-2"
               style={{
                 borderColor: theme.primaryColor,
                 color: theme.primaryColor,
               }}
             >
+              <GraduationCap size={20} style={{ marginRight: 4 }} />
               ОБРАЗОВАНИЕ
             </h3>
             <div>
@@ -73,24 +76,30 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, theme }) => {
         return (
           <div key={section.id} className="mb-6">
             <h3
-              className="text-lg font-semibold mb-3 border-b-2 pb-1"
+              className="text-lg font-semibold mb-3 border-b-2 pb-1 flex items-center gap-2"
               style={{
                 borderColor: theme.primaryColor,
                 color: theme.primaryColor,
               }}
             >
+              <Settings size={20} style={{ marginRight: 4 }} />
               НАВЫКИ
             </h3>
-            <div className="flex flex-wrap gap-2">
-              {section.skills?.map((skill: string, index: number) => (
-                <span
-                  key={index}
-                  className="px-3 py-1 rounded-full text-sm font-medium text-white"
-                  style={{ backgroundColor: theme.primaryColor }}
-                >
-                  {skill}
-                </span>
-              ))}
+            <div
+              style={{
+                backgroundColor: theme.primaryColor,
+                color: "white",
+                borderRadius: 16,
+                padding: "12px 20px",
+                textAlign: "center",
+                fontSize: "1rem",
+                fontWeight: 500,
+                margin: "0 auto",
+                maxWidth: 600,
+                opacity: 0.5,
+              }}
+            >
+              {section.skills?.join(", ")}
             </div>
           </div>
         );
@@ -99,12 +108,13 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, theme }) => {
         return (
           <div key={section.id} className="mb-6">
             <h3
-              className="text-lg font-semibold mb-3 border-b-2 pb-1"
+              className="text-lg font-semibold mb-3 border-b-2 pb-1 flex items-center gap-2"
               style={{
                 borderColor: theme.primaryColor,
                 color: theme.primaryColor,
               }}
             >
+              <Award size={20} style={{ marginRight: 4 }} />
               СЕРТИФИКАТЫ
             </h3>
             <div>
@@ -121,13 +131,13 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, theme }) => {
         return (
           <div key={section.id} className="mb-6">
             <h3
-              className="text-lg font-semibold mb-3 border-b-2 pb-1"
+              className="text-lg font-semibold mb-3 border-b-2 pb-1 flex items-center gap-2"
               style={{
                 borderColor: theme.primaryColor,
                 color: theme.primaryColor,
               }}
             >
-              О СЕБЕ
+              <User size={20} style={{ marginRight: 4 }} />О СЕБЕ
             </h3>
             <p className="text-gray-600 leading-relaxed">{section.content}</p>
           </div>
@@ -158,12 +168,43 @@ const ResumePreview: React.FC<ResumePreviewProps> = ({ data, theme }) => {
           />
         )}
       <div
-        className="p-8 h-full overflow-auto"
+        className="p-8 h-full overflow-auto relative"
         style={{ fontFamily: theme.fontFamily }}
       >
         <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            position: "absolute",
+            top: 24,
+            left: 24,
+            zIndex: 10,
+          }}
+        >
+          <img
+            src="/Logo.png"
+            alt="Логотип"
+            style={{
+              height: 48,
+              width: 48,
+              objectFit: "contain",
+              marginRight: 12,
+            }}
+          />
+          <span
+            style={{
+              color: "rgba(0, 0, 0, 0.8)",
+              fontWeight: 600,
+              fontSize: 18,
+              letterSpacing: 1,
+            }}
+          >
+            Резюме
+          </span>
+        </div>
+        <div
           className="text-center mb-8 pb-6 border-b-4"
-          style={{ borderColor: theme.primaryColor }}
+          style={{ borderColor: theme.primaryColor, marginTop: 48 }}
         >
           <h1
             className="text-3xl font-bold mb-2"

@@ -12,6 +12,8 @@ import { getAiSuggestion } from "@/utils/aiSuggestions";
 import { useToast } from "@/hooks/use-toast";
 import { Download, Sparkles } from "lucide-react";
 import html2pdf from "html2pdf.js";
+import Navbar from "@/components/ui/navbar";
+import Footer from "@/components/ui/footer";
 
 const Index = () => {
   const {
@@ -23,6 +25,7 @@ const Index = () => {
     deleteSection,
     reorderSections,
     setTheme,
+    resetResume,
   } = useResumeData();
 
   const { toast } = useToast();
@@ -68,20 +71,20 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      <Navbar />
       <div className="container mx-auto p-4">
-        <div className="mb-6 text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">
-            Визуальный редактор резюме
-          </h1>
-          <p className="text-gray-600">
-            Создайте профессиональное резюме с живым превью
-          </p>
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-[calc(100vh-200px)]">
           <div className="bg-white rounded-lg shadow-lg">
-            <div className="p-4 border-b bg-gray-50 rounded-t-lg">
+            <div className="p-4 border-b bg-gray-50 rounded-t-lg flex items-center justify-between">
               <h2 className="text-xl font-semibold text-gray-900">Редактор</h2>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={resetResume}
+                className="ml-2 bg-red-100 text-red-700 hover:bg-red-200 border-red-300"
+              >
+                Очистить форму
+              </Button>
             </div>
             <ScrollArea className="h-[calc(100%-60px)]">
               <div className="p-4 space-y-4">
@@ -141,6 +144,7 @@ const Index = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -1,73 +1,30 @@
-# Welcome to your Lovable project
+Как запустить проект
 
-## Project info
+1. **Клонируйте репозиторий:**
+   git clone <ссылка-на-репозиторий>
+   cd TestCV
+2. **Установите зависимости:**
+   npm install
+3. **Запустите проект в режиме разработки:**
+   npm run dev
 
-**URL**: https://lovable.dev/projects/35705a68-834f-4298-837f-0aeb4edcbefe
+Используемый стек
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/35705a68-834f-4298-837f-0aeb4edcbefe) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/35705a68-834f-4298-837f-0aeb4edcbefe) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- **React 18** — библиотека для построения интерфейсов
+- **Vite** — быстрый сборщик и dev-сервер
+- **TypeScript** — типизация
+- **TailwindCSS** — стилизация и дизайн
+- **Radix UI** — современные UI-компоненты (меню, тосты, аватар и др.)
+- **lucide-react** — иконки
+- **html2pdf.js** — экспорт резюме в PDF
+- **react-hook-form** — формы
+- **@tanstack/react-query** — работа с данными
+- **date-fns** — работа с датами
+  Структура
+- `/src` — исходный код приложения
+- `/public/Logo.png` — логотип
+- `/public/default-avatar.png` — дефолтный аватар
+  Полезные ссылки в футере
+- [hh.ru](https://hh.ru/)
+- [LinkedIn](https://www.linkedin.com/)
+- [Telegram](https://t.me/)

@@ -3,10 +3,11 @@ import { ResumeData, ResumeSection, ResumeTheme } from "@/types/resume";
 
 const defaultResumeData: ResumeData = {
   personalInfo: {
-    name: "Иван Иванов",
-    email: "ivan.ivanov@email.com",
-    phone: "+7 (999) 123-45-67",
-    location: "Москва, Россия",
+    name: "",
+    surname: "",
+    email: "",
+    phone: "",
+    location: "",
   },
   sections: [],
 };
@@ -91,6 +92,13 @@ export const useResumeData = () => {
     }));
   };
 
+  const resetResume = () => {
+    setResumeData(defaultResumeData);
+    setTheme(defaultTheme);
+    localStorage.removeItem("resumeData");
+    localStorage.removeItem("resumeTheme");
+  };
+
   return {
     resumeData,
     theme,
@@ -100,5 +108,6 @@ export const useResumeData = () => {
     deleteSection,
     reorderSections,
     setTheme,
+    resetResume,
   };
 };
