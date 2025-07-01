@@ -6,7 +6,14 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
-import { LogIn, Settings, User, Import, Upload } from "lucide-react";
+import {
+  LogIn,
+  Settings,
+  User,
+  Import,
+  Upload,
+  ShoppingCart,
+} from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Navbar: React.FC = () => {
@@ -34,8 +41,10 @@ const Navbar: React.FC = () => {
         </div>
         <div className="flex items-center gap-4">
           <button
-            className="bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded transition-colors duration-200 shadow"
-            onClick={() => toast({ title: "Скоро будет доступно - по просьбе Заказчика!" })}
+            className="hidden md:inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-2 px-4 rounded transition-colors duration-200 shadow"
+            onClick={() =>
+              toast({ title: "Скоро будет доступно - по просьбе Заказчика!" })
+            }
           >
             Заказать резюме
           </button>
@@ -77,6 +86,17 @@ const Navbar: React.FC = () => {
                 className="gap-2"
               >
                 <Upload size={18} /> Экспорт
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                onClick={() =>
+                  toast({
+                    title: "Скоро будет доступно - по просьбе Заказчика!",
+                  })
+                }
+                className="gap-2 md:hidden"
+              >
+                <ShoppingCart size={18} className="text-green-600" /> Заказать
+                резюме
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
